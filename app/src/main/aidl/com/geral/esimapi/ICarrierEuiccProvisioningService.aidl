@@ -1,9 +1,10 @@
 // ICarrierEuiccProvisioningService.aidl
 package com.geral.esimapi;
+import com.geral.esimapi.IGetActivationCodeCallback;
 
 // Declare any non-default types here with import statements
 
-interface ICarrierEuiccProvisioningService {
+oneway interface ICarrierEuiccProvisioningService {
      // The method to get the activation code from the carrier app. The caller needs to pass in
        // the implementation of IGetActivationCodeCallback as the parameter.
        void getActivationCode(in IGetActivationCodeCallback callback);

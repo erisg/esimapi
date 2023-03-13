@@ -27,8 +27,8 @@
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter android:priority="100">
-                <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.service.euicc.action.START_EUICC_ACTIVATION" />
+                <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
