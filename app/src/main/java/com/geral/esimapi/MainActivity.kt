@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.telephony.euicc.EuiccInfo
 import android.telephony.euicc.EuiccManager
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.geral.esimapi.databinding.ActivityMainBinding
 
@@ -26,7 +27,7 @@ class MainActivity : AppCompatActivity() {
             this.getSystemService(Context.EUICC_SERVICE) as EuiccManager
 
         // es compatible
-        euiccManager.isEnabled
+        Toast.makeText(this, "${euiccManager.isEnabled}", Toast.LENGTH_SHORT).show()
         // hardware eUICC y la versión del sistema operativo eSIM
         val info: EuiccInfo? = euiccManager.euiccInfo
         val osVer = info?.osVersion
