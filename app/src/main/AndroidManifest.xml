@@ -2,8 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.WRITE_EMBEDDED_SUBSCRIPTIONS"
+    <uses-permission
+        android:name="android.permission.WRITE_EMBEDDED_SUBSCRIPTIONS"
         tools:ignore="ProtectedPermissions" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,26 +15,31 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EsimApi"
         tools:targetApi="31">
+        <activity
+            android:name=".HomeActivity"
+            android:exported="true" >
+            <intent-filter android:priority="100">
+                <action android:name="android.service.euicc.action.START_EUICC_ACTIVATION" />
+            </intent-filter>
+        </activity>
 
         <service
             android:name=".CarrierEuiccProvisioningService"
             android:exported="true"
             android:permission="android.permission.WRITE_EMBEDDED_SUBSCRIPTIONS">
             <intent-filter>
-                <action android:name="android.service.euicc.action.BIND_CARRIER_PROVISIONING_SERVICE"/>
+                <action android:name="android.service.euicc.action.BIND_CARRIER_PROVISIONING_SERVICE" />
             </intent-filter>
         </service>
 
         <activity
             android:name=".MainActivity"
             android:exported="true">
-            <intent-filter android:priority="100">
-                <action android:name="android.service.euicc.action.START_EUICC_ACTIVATION" />
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

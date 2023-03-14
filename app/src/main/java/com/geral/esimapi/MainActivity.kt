@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         val osVer = info?.osVersion
 
         binding.button.setOnClickListener {
-            openLPA()
+            startActivity(Intent(this, HomeActivity::class.java))
         }
     }
 
