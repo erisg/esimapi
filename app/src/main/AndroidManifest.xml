@@ -2,8 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission
-        android:name="android.permission.WRITE_EMBEDDED_SUBSCRIPTIONS"
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.MODIFY_PHONE_STATE"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.MANAGE_EUICC"/>
+
+    <uses-permission android:name="android.permission.WRITE_EMBEDDED_SUBSCRIPTIONS"
         tools:ignore="ProtectedPermissions" />
 
     <application
