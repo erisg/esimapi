@@ -47,23 +47,22 @@ class MainActivity : AppCompatActivity() {
             act?.activityInfo?.name.orEmpty()
         )
 
-        euiccManager.downloadSubscription(
-            request,
-            true,
-            PendingIntent.getService(
-                this,
-                1,
-                intent,
-                PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
-            )
-        )
         Toast.makeText(this, "${euiccManager.isEnabled}", Toast.LENGTH_SHORT).show()
         // hardware eUICC y la versión del sistema operativo eSIM
         val info: EuiccInfo? = euiccManager.euiccInfo
         val osVer = info?.osVersion
 
         binding.button.setOnClickListener {
-            startActivity(Intent(this, HomeActivity::class.java))
+            euiccManager.downloadSubscription(
+                request,
+                true,
+                PendingIntent.getService(
+                    this,
+                    1,
+                    intent,
+                    PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+                )
+            )
         }
     }
 
