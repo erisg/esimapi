@@ -7,7 +7,7 @@ import android.util.Log
 
 class HomeActivity : AppCompatActivity() {
 
-    var action = "android.service.euicc.action.START_EUICC_ACTIVATION"
+    var action = "android.service.euicc.action.START_CARRIER_ACTIVATION"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
